@@ -22,10 +22,16 @@
 
         <div class="form-box" id="login-box">
             <div class="header"><img src="img/logo.png" alt="logo"></div>
-            <form action="../../index.html" method="post">
+
+            <form action="register_action.php" method="post">
+
                 <div class="body bg-gray">
+                    
                     <div class="form-group">
                         <input type="text" name="email" class="form-control" placeholder="Email"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="username" class="form-control" placeholder="User Name"/>
                     </div>
                     <div class="form-group">
                         <input type="password" name="password" class="form-control" placeholder="Password"/>
