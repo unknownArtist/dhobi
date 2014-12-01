@@ -1,0 +1,241 @@
+/*.my-form-control{
+	display: inline-block;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 10px 20px;
+  border: 1px solid #8AA1AE;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  font: normal 16px/normal "Lucida Console", Monaco, monospace;
+  color: rgba(0,142,198,1);
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  background: rgba(252,252,252,1);
+  -webkit-box-shadow: 0 0 0 0 rgba(0,0,0,0.2) inset;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.2) inset;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.66) ;
+  -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  width: 400px;
+}*/
+
+/*#view-address {
+	background-color: #3c8dbc;
+	color: white;
+	padding: 4px;
+	margin-left: 200px;
+	width: 600px;
+	border-radius: 10px;
+}
+
+#text-address  {
+	margin-left: 20px;
+}
+#text-address a {
+	color: white;
+	float: right;
+	margin-right: 30px;
+	font-size: 20px;
+}*/
+/*#text-address a:hover {
+	background-color: white;
+	padding-left: 15px;
+	padding-right: 15px;
+	color: #3c8dbc;
+}*/
+
+/*#add-address-link  {
+	margin-left: 700px;
+	margin-top: 40px;
+	font: white;
+}*/
+
+
+#view-address
+{
+	padding:20px 50px;
+}
+
+#text-address a
+{
+	width:75%;
+	background:#fff;
+	padding:20px 30px;
+	margin-bottom:20px;
+	overflow:hidden;
+	display:block;
+	color:#625f78;
+}
+
+.where-set
+{
+	width:80%;
+	float:left;
+	overflow:hidden;
+}
+
+#text-address 
+{
+	
+}
+
+#text-address a:hover
+{
+	background:#3c8dbc;
+}
+
+#text-address a:hover h2, #text-address a:hover p, #text-address a:hover h3
+{
+	color:#fff;
+}
+
+#text-address h2
+{
+	margin:0;
+	float:left;
+}
+
+#text-address h3
+{
+	margin:0;
+	float:left;
+	padding-top:10px;
+	color:#3c8dbc;
+}
+
+#text-address p
+{
+	margin:0;
+	clear:left;
+	color:#aaa;
+}
+
+.form-group p
+{
+	width: 100%;
+margin: 0;
+padding-bottom: 15px;
+overflow: hidden;
+}
+
+.form-group p label
+{
+	float: left;
+font-size: 20px;
+font-weight: normal;
+padding-top: 9px;
+width:170px;
+}
+
+.form-group p input, .form-group p select
+{
+	width:50%;
+	min-width:250px;
+	float:left;
+	border-radius:20px !important;
+	outline:none;
+	transition:0.5s ease;
+}
+.form-group p select
+{
+ -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+
+.form-group p select:hover
+{
+	background:#3c8dbc;
+	color:#fff;
+	cursor:pointer;
+	
+}
+
+.box-footer p
+{
+	width:32%;
+	min-width:210px;
+	margin:0 auto;
+	text-align:right;
+}
+
+#add-address-link p
+{
+	width:75%;
+	text-align:right;
+	margin:0;
+}
+
+.box-footer p button, .box-footer p a, #add-address-link a
+{
+	font-size: 18px;
+	padding: 5px 25px;
+	border-radius: 20px;
+	border:0;
+	transition:0.5s ease;
+}
+
+.treeview span
+{
+	font-size:18px;
+}
+
+.treeview .angleleft
+{
+	font-size:18px;
+	position:relative;
+	top:5px;	
+}
+
+
+span.setsel {position:relative}
+span.setsel:after {
+    content:'<>';
+    font:18px "Consolas", monospace;
+    color:#aaa;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -ms-transform:rotate(90deg);
+    transform:rotate(90deg);
+    right:20px; top:15px;
+    padding:0 0 2px;
+    border-bottom:1px solid #ddd;
+    position:absolute;
+    pointer-events:none;
+}
+span.setsel:before {
+    content:'';
+    right:20px; top:0px;
+    width:30px; height:30px;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+
+
+@media screen and (max-width: 566px) {
+	.form-group p input, .form-group p select
+			{
+				width:100%;
+			}
+			
+			.form-group p select
+{
+ -webkit-appearance:menulist;
+    -moz-appearance:menulist;
+    appearance:menulist;
+}
+
+span.setsel:after
+{
+	display:none;
+}
+	
+}
+
+
+
+
