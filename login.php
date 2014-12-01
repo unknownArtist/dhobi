@@ -4,7 +4,7 @@ require_once('curl.php');
 if (isset($_SESSION['logined']))
 {   
     if(isset($_SESSION['sessionToken']))
-    {
+    {  
         header('location:index.php');
         die();
     }
