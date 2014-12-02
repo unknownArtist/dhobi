@@ -1,6 +1,8 @@
 <?php
 session_start();
 require_once('curl.php');
+include_once('facebook_auth.php');
+
 if (isset($_SESSION['logined']))
 {   
     if(isset($_SESSION['sessionToken']))
@@ -9,7 +11,18 @@ if (isset($_SESSION['logined']))
         die();
     }
 }
-?>
+
+$fb_user = $facebook->getUser();
+$loginUrl =$facebook->getLoginUrl();
+
+if($fb_user)
+{
+   
+    $user_profile = $facebook->api('/me');
+
+    if($user_profile) { ?>
+    <script> window.location = "http://localhost:3000/index.php"; </script>
+
 <!DOCTYPE html>
 <html class="bg-black">
     <head>
@@ -60,7 +73,7 @@ if (isset($_SESSION['logined']))
             <div class="margin text-center">
                 <span>Connect with</span>
                 <br/>
-                <button class="btn bg-light-blue btn-circle"><i class="fa fa-facebook"></i></button>
+                <button class="btn bg-light-blue btn-circle"><a href="<?php echo $loginUrl; ?>"><i class="fa fa-facebook"></i></a></button>
             </div>
         </div>
 

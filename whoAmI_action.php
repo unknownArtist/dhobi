@@ -23,12 +23,12 @@ session_start();
 					echo json_encode("Invalid email"); return;
 				}
 
-	if(!$user['password'])
+	/*if(!$user['password'])
 		{
 			
 			echo json_encode("Please insert your password"); return;
 
-		}
+		}*/
 
 	if(!$user['firstName'])
 		{
