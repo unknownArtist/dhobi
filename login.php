@@ -12,17 +12,7 @@ if (isset($_SESSION['logined']))
     }
 }
 
-$fb_user = $facebook->getUser();
-$loginUrl =$facebook->getLoginUrl();
-
-if($fb_user)
-{
-   
-    $user_profile = $facebook->api('/me');
-
-    if($user_profile) { ?>
-    <script> window.location = "http://localhost:3000/index.php"; </script>
-
+?>
 <!DOCTYPE html>
 <html class="bg-black">
     <head>

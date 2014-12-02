@@ -4,13 +4,13 @@ require_once('curl.php');
 $order = getObjectsInClass('Order', json_encode(array('userID'=>$_SESSION['objectId'])));
 $order = json_decode($order);
 
-if (!isset($_SESSION['logined']))
+if (isset($_SESSION['logined']))
 {
-    // if(!isset($_SESSION['sessionToken']))
-    // {
+    if(!isset($_SESSION['sessionToken']))
+    {
         header('location:login.php');
         die();
-    // }
+    }
 }
 else 
 {
