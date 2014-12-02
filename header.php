@@ -3,17 +3,18 @@ session_start();
 require_once('curl.php');
 $order = getObjectsInClass('Order', json_encode(array('userID'=>$_SESSION['objectId'])));
 $order = json_decode($order);
-if ($_SESSION['logined'] == 1)
+
+if (!isset($_SESSION['logined']))
 {
-    if(!isset($_SESSION['sessionToken']))
-    {
+    // if(!isset($_SESSION['sessionToken']))
+    // {
         header('location:login.php');
         die();
-    }
+    // }
 }
 else 
 {
-	header('location:login.php');
+	header('location:index.php');
     die();
 }
 ?>

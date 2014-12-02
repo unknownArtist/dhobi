@@ -10,9 +10,9 @@ error_reporting(0);
 		'password'		=>	sha1($_POST['password']),
 		'password2'		=>	sha1($_POST['password2']),
 		'username'		=>  $_POST['username'],
-		'fname'			=>  $_POST['fname'],
-		'lname'			=>	$_POST['lname'],
-		'phone'			=>  $_POST['phone']
+		'firstName'			=>  $_POST['fname'],
+		'LastName'			=>	$_POST['lname'],
+		'phoneNumber'			=>  $_POST['phone']
 	];
 
 	$userinfo['token'] = substr(md5(uniqid(rand(), true)), 16, 16);
