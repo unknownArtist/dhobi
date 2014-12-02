@@ -18,14 +18,15 @@
         <script type="text/javascript">
         var nowDate = new Date();
         var today = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), 0, 0, 0, 0);
-        $("#datepicker").datepicker({
-            startDate: today 
+        $("#datepickerhowdoipay").datepicker({
+            // startDate: today 
+            format: "mm-yyyy",
+            viewMode: "months", 
+            minViewMode: "months"
         });
-        $("#datepicker1").datepicker({
-            startDate: today 
-        });
+       
 
-            $('#timepicker').timepicker();
+            $('#datepickerDeliever').timepicker();
             $('#timepicker1').timepicker();
 
         </script>

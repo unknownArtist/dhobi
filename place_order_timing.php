@@ -54,7 +54,7 @@ if (isset($_SESSION['logined']))
                                             
                                         </div>
                                         <div class="form-group">
-										<p><label>Retrieval Date:</label>
+										<p><label>Pickup Date:</label>
                                             <input name="retrievalDate"  class="form-control input-lg" data-date-format="mm-dd-yyyy"  id="datepicker" placeholder="Retrival Date"></p>
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
@@ -64,7 +64,7 @@ if (isset($_SESSION['logined']))
                                         </div>
                                         <div class="form-group">
                                         <p><label>Deliever Date:</label>
-                                            <input name="delieverDate"  class="form-control input-lg" data-date-format="mm-dd-yyyy"  id="datepicker1" placeholder="Deliever Date"></p>
+                                            <input name="delieverDate"  class="form-control input-lg" id="datepickerDeliever" placeholder="Deliever Date"></p>
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Deliever Time:</label>
