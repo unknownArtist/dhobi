@@ -15,6 +15,7 @@ if (isset($result['sessionToken']))
       $_SESSION['userRole'] = $result['userRole'];
       $_SESSION['sessionToken'] = $result['sessionToken'];
       $_SESSION['objectId'] = $result['objectId'];
+      $_SESSION['email'] = $_POST['email'];
       header('location:index.php');
 }
 else 

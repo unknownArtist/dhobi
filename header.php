@@ -123,7 +123,7 @@ else
                                 <i class="fa fa-angle-left pull-right angleleft"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="who_am_i.php"><i class="fa fa-angle-double-right"></i> Who Am I</a></li>
+                                <li><a href="conform_identity.php"><i class="fa fa-angle-double-right"></i> Who Am I</a></li>
                                 <li><a href="where_am_i.php"><i class="fa fa-angle-double-right"></i> Where Am I</a></li>
                                 <li><a href="how_do_i_pay.php"><i class="fa fa-angle-double-right"></i> How Do I Pay</a></li>
                                 <?php if(!$order->results[0]->objectId): ?>

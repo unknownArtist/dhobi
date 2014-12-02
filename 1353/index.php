@@ -9,10 +9,10 @@ session_start();
  </head>
   <body>
   <?php if ($_SESSION['FBID']): ?>      <!--  After user login  -->
-<div class="container">
-<div class="hero-unit">
-  <h1>Hello <?php echo $_SESSION['USERNAME']; ?></h1>
-  <p>Welcome to "facebook login" tutorial</p>
+  <div class="container">
+  <div class="hero-unit">
+    <h1>Hello <?php echo $_SESSION['USERNAME']; ?></h1>
+    <p>Welcome to "facebook login" tutorial</p>
   </div>
 <div class="span4">
  <ul class="nav nav-list">
