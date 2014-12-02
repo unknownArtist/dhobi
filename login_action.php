@@ -1,12 +1,12 @@
 <?php ob_start();
-error_reporting(0);
+/*error_reporting(0);*/
 session_start();
 require_once('curl.php');
 $emailID	=	$_POST['email'];
 $pass		=	$_POST['password'];
 
 $result = json_decode(login($_POST['email'], sha1($_POST['password'])), true);
-
+var_dump($result); die();
 if (isset($result['sessionToken']))
 {
       $alert = 'gotonext';
