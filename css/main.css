@@ -130,7 +130,7 @@ padding-top: 9px;
 width:170px;
 }
 
-.form-group p input, .form-group p select
+.form-group p input, .form-group p select, .form-group p textarea
 {
 	width:50%;
 	min-width:250px;

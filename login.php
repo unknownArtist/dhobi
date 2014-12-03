@@ -7,7 +7,42 @@ $facebook = new Facebook(array(
         'appId' => '1577721512451197',
         'secret' => '5b3e7ec9861d1c2198adefa9795a5086'
     ));
+
 $loginUrl =$facebook->getLoginUrl(); 
+
+$uid = $facebook->getUser();
+
+/*if($uid) {
+    header('location:logined_by_facebook_action.php');
+}*/
+
+if($uid) {
+    $user = $facebook->api('/me');
+
+    $userinfo = [
+        'facebookID'    =>  $user['id'],
+        'email'         =>  $user['email'],
+        'password'      =>  'dumy',
+        'username'      =>  $user['name'],
+        'firstName'     =>  $user['first_name'],
+        'lastName'      =>  $user['last_name'],
+    ];
+    
+    $_SESSION['facebookID'] = $userinfo['facebookID'];
+
+    
+    $findUser = getObjectsInClass('_User', json_encode(array('email'=>$userinfo['email'])));
+    $findUser = json_decode($findUser)->results[0];
+
+    if($findUser != null ){
+        header('location:index.php'); die(); 
+    } else {
+        $created = createObjectInClass('_User', $userinfo);
+        header('location:index.php'); die(); 
+    }
+
+
+}
 
 if (isset($_SESSION['logined']))
 {   
@@ -19,6 +54,8 @@ if (isset($_SESSION['logined']))
 }
 
 ?>
+
+
 <!DOCTYPE html>
 <html class="bg-black">
     <head>
