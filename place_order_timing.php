@@ -11,6 +11,12 @@ if (isset($_SESSION['logined']))
     }
 
      $user = json_decode(getObjectsInClass('Address', json_encode(["userID" => $_SESSION['objectId']])));
+     $store = json_decode(getObjectByIdInClass('Store','EykvXBNOle'));
+
+
+
+    
+
     }
 
 ?>
@@ -54,8 +60,8 @@ if (isset($_SESSION['logined']))
                                             
                                         </div>
                                         <div class="form-group">
-										<p><label>Retrieval Date:</label>
-                                            <input name="retrievalDate"  class="form-control input-lg" data-date-format="mm-dd-yyyy"  id="datepicker" placeholder="Retrival Date"></p>
+										<p><label>Pickup Date:</label>
+                                            <input name="retrievalDate"  class="form-control input-lg" data-date-format="mm-dd-yyyy"  id="datepickerPickup" placeholder="Retrival Date"></p>
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Retrival Time:</label>
@@ -68,7 +74,7 @@ if (isset($_SESSION['logined']))
                                         </div>
                                         <div class="form-group">
                                         <p><label>Deliever Date:</label>
-                                            <input name="delieverDate"  class="form-control input-lg" data-date-format="mm-dd-yyyy"  id="datepicker1" placeholder="Deliever Date"></p>
+                                            <input name="delieverDate"  class="form-control input-lg" id="datepickerDeliever" placeholder="Deliever Date"></p>
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Deliever Time:</label>
@@ -92,7 +98,14 @@ if (isset($_SESSION['logined']))
                                         </p>
                                     </div>
                                 </form>
+                               <?php 
 
+                              /* var_dump($store->pickupTime,$store->pickupTimeto);
+                                  $to_time = strtotime($store->pickupTime);
+                                    $from_time = strtotime($store->pickupTimeto);
+                                    echo Date("H",round(abs($to_time - $from_time) / 60). " minute");
+*/
+                                ?>
                             </div><!-- /.box -->
 
                 </section><!-- /.content -->

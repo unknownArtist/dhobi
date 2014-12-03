@@ -5,9 +5,6 @@ ob_start();
 include("header.php");
 require_once('curl.php');
 
-
-
-
 if (isset($_SESSION['logined']))
 {
     if(isset($_SESSION['sessionToken']))
@@ -18,20 +15,17 @@ if (isset($_SESSION['logined']))
 
 }
 
-$password = sha1($_POST['password']);
+if($_POST) {
+    $password = sha1($_POST['password']);
 
-$userInfo = json_decode(getObjectByIdInClass('_User', $_SESSION['objectId']));
+    $userInfo = json_decode(getObjectByIdInClass('_User', $_SESSION['objectId']));
 
-
-
-if($_SESSION['if_facebook_user']) {
-    
-    header('location:who_am_i.php');
+     if(!($password == $userInfo->password2))
+        {
+            header('location:conform_identity.php');
+        }
 }
- if(!($password == $userInfo->password2))
-    {
-        header('location:conform_identity.php');
-    }
+
 ?>
             <!-- Right side column. Contains the navbar and content of the page -->
             <aside class="right-side">                

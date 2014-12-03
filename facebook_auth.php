@@ -9,32 +9,42 @@
 		}
 
 	$facebook = new Facebook(array(
-		'appId' => '1577721512451197',
-		'secret' => '5b3e7ec9861d1c2198adefa9795a5086'
+		'appId' => '761539730548718',
+		'secret' => '9913a5fde69ce0a3ad91bcfa456a6a64'
 	));
     
+	$user = $facebook->getUser();
+	 
+	if ($user) {
+	  try {
 
+	  		$user_profile = $facebook->api('/me');
 
-
-	// if ($user) {
- //  	try {
-	// 	    // Proceed knowing you have a logged in user who's authenticated.
-	// 	    $user_profile = $facebook->api('/me');
- //  	  	} catch (FacebookApiException $e) {
-	// 	    error_log($e);
-	// 	    $user = null;
- //  		}
- //    }
-
-	// if(!$user)
-	// {
-	// 	$loginUrl =$facebook->getLoginUrl();
-	// }
-	// else
-	// {
-		
-	// 	echo "<a href='$loginUrl'>Login</a>";
-	// }
+	  	var_dump($user_profile); die();
+	 //    $user_profile = $facebook->api('/me');
+	 //  	    $fbid = $user_profile['id'];                 // To Get Facebook ID
+	 //     $fbuname = $user_profile['username'];  // To Get Facebook Username
+	 //     $fbfullname = $user_profile['name']; // To Get Facebook full name
+	 //     $femail = $user_profile['email'];    // To Get Facebook email ID
+	 // /* ---- Session Variables -----*/
+	 //     $_SESSION['FBID'] = $fbid;           
+	 //     $_SESSION['USERNAME'] = $fbuname;
+	 //            $_SESSION['FULLNAME'] = $fbfullname;
+	 //     $_SESSION['EMAIL'] =  $femail;
+	    //       checkuser($fbid,$fbuname,$fbfullname,$femail);    // To update local DB
+	  } catch (FacebookApiException $e) {
+	    error_log($e);
+	   $user = null;
+	  }
+	}
+	if ($user) {
+	 header("Location: index.php");
+	} else {
+	 $loginUrl = $facebook->getLoginUrl(array(
+	 'scope' => 'email', // Permissions to request from the user
+	 ));
+	 header("Location: ".$loginUrl);
+	}
 
 	?>
 

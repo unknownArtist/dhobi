@@ -4,9 +4,11 @@ ob_start();
 error_reporting(0);
 session_start();
 
+$expiryDate = strtotime("28-".$_POST['expiryAt']);
+
 $userCreditCardInfo = [
 		'number' 			=>	$_POST['number'],
-		'expireAt'			=>  strtotime($_POST['expiryAt']),
+		'expireAt'			=>  $expiryDate,
 		'cvc'				=>	$_POST['cvc'],
 		'userID'			=>  $_SESSION['objectId'],
 		'billingZipCode'	=>	$_POST['billingZipCode']

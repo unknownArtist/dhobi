@@ -46,7 +46,7 @@ if (isset($_SESSION['logined']))
                                         </div>
                                         <div class="form-group">
 										<p><label>Expiration Info:</label>
-                                            <input name="expiryAt"  class="form-control input-lg" data-date-format="dd-mm-yyyy" data-provide="datepicker" id="exampleInput" placeholder="Expiration Info"></p>
+                                            <input name="expiryAt"  class="form-control input-lg"  id="datepickerhowdoipay" placeholder="Expiration Info"></p>
                                         </div>
                                         <div class="form-group">
 										<p><label>CVC:</label>

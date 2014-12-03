@@ -2,9 +2,6 @@
 
 include("header.php");
 
-// remove this line if you include the header.php file
-require_once('curl.php');
-
 if (isset($_SESSION['logined']))
 {
     if(isset($_SESSION['sessionToken']))
@@ -14,7 +11,8 @@ if (isset($_SESSION['logined']))
     $user = json_decode(getUsers($_SESSION['objectId']));
 
 }
-var_dump($_SESSION['facebookID']); die();
+/*var_dump($_SESSION['facebookID']); die();*/
+
 if($_SESSION['facebookID']) {
 
     $facebookUser = getObjectsInClass('_User', json_encode(array('facebookID'=>$_SESSION['facebookID'])));
@@ -24,12 +22,12 @@ if($_SESSION['facebookID']) {
     $facebookUserEmail = $facebookUser->results[0]->email;
 
     $_SESSION['if_facebook_user'] = $facebookUserEmail;
-
+    
     if($facebookUserEmail != null) {
         header('location:who_am_i.php');
+        die();
     }
 }
-
 
 
 ?>

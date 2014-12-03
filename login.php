@@ -1,7 +1,8 @@
 <?php
+
 session_start();
 require_once('curl.php');
-include_once('facebook_auth.php');
+require_once('facebook_auth/src/facebook.php');
 
 $facebook = new Facebook(array(
         'appId' => '1577721512451197',
@@ -12,9 +13,6 @@ $loginUrl =$facebook->getLoginUrl();
 
 $uid = $facebook->getUser();
 
-/*if($uid) {
-    header('location:logined_by_facebook_action.php');
-}*/
 
 if($uid) {
     $user = $facebook->api('/me');
@@ -27,9 +25,10 @@ if($uid) {
         'firstName'     =>  $user['first_name'],
         'lastName'      =>  $user['last_name'],
     ];
-    
-    $_SESSION['facebookID'] = $userinfo['facebookID'];
 
+    $_SESSION['logedIn_by_facebook'] = $userinfo['facebookID'];
+
+    
     
     $findUser = getObjectsInClass('_User', json_encode(array('email'=>$userinfo['email'])));
     $findUser = json_decode($findUser)->results[0];
@@ -52,6 +51,19 @@ if (isset($_SESSION['logined']))
         die();
     }
 }
+
+
+// if (isset($_SESSION['logined']))
+// {   
+//     if(isset($_SESSION['sessionToken']))
+//     {  
+//         header('location:index.php');
+//         die();
+//     }
+// }else
+//     {
+//         header('location: login.php');
+//     }
 
 ?>
 
