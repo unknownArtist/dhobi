@@ -4,7 +4,7 @@ require_once('curl.php');
 $order = getObjectsInClass('Order', json_encode(array('userID'=>$_SESSION['objectId'])));
 $order = json_decode($order);
 
-if (isset($_SESSION['logined']))
+if ($_SESSION['logined'] == 1)
 {
     if(!isset($_SESSION['sessionToken']))
     {
@@ -14,7 +14,7 @@ if (isset($_SESSION['logined']))
 }
 else 
 {
-	header('location:index.php');
+    header('location:login.php');
     die();
 }
 ?>

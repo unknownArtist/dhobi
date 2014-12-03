@@ -26,8 +26,20 @@
         });
        
 
-            $('#datepickerDeliever').timepicker();
-            $('#timepicker1').timepicker();
+            $('#datepickerPickup').datepicker({
+                startDate: '+1d',
+                endDate: '+2d',
+                autoclose: true,
+                autofocus: true
+            });
+            $('#datepickerDeliever').datepicker({
+
+                startDate: '+3d',
+                endDate: '+6d',
+                autoclose: true,
+                autofocus: true
+               
+            });
 
         </script>
          <script>

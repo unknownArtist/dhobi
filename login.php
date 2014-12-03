@@ -1,22 +1,19 @@
-<?php
+f<?php
 session_start();
 require_once('curl.php');
-include_once('facebook_auth.php');
 
-$facebook = new Facebook(array(
-        'appId' => '1577721512451197',
-        'secret' => '5b3e7ec9861d1c2198adefa9795a5086'
-    ));
-$loginUrl =$facebook->getLoginUrl(); 
 
-if (isset($_SESSION['logined']))
-{   
-    if(isset($_SESSION['sessionToken']))
-    {  
-        header('location:index.php');
-        die();
-    }
-}
+// if (isset($_SESSION['logined']))
+// {   
+//     if(isset($_SESSION['sessionToken']))
+//     {  
+//         header('location:index.php');
+//         die();
+//     }
+// }else
+//     {
+//         header('location: login.php');
+//     }
 
 ?>
 <!DOCTYPE html>
@@ -69,7 +66,7 @@ if (isset($_SESSION['logined']))
             <div class="margin text-center">
                 <span>Connect with</span>
                 <br/>
-                <button class="btn bg-light-blue btn-circle"><a href="<?php echo $loginUrl; ?>"><i class="fa fa-facebook"></i></a></button>
+                <button class="btn bg-light-blue btn-circle"><a href=""><i class="fa fa-facebook"></i></a></button>
             </div>
         </div>
 
