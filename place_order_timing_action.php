@@ -24,11 +24,11 @@ $deliverTo = $_POST["delieverDate"]." ".$delievertimeTo;
 
 $userOrder = [
 		'addressID' 		=>	$_POST['address'],
-		'mretrievalAtFrom'	=>  $_POST["retrievalDate"]." ".$retrievalAtFrom,
-		'mretrievalAtTo'		=>	$_POST["retrievalDate"]." ".$retrievalAtTo,
+		'retrievalAtFrom'	=>  $retrievalFrom,
+		'retrievalAtTo'		=>	$retrievalTo,
 
-		'mdelieverAtFrom'	=>	$_POST["delieverDate"]." ".$delievertimeFrom,
-		'mdeliverAtTo'		=>  $_POST["delieverDate"]." ".$delievertimeTo,
+		'delieverAtFrom'	=>	$deliverFrom,
+		'deliverAtTo'		=>  $deliverTo,
 
 		'userID'			=>  $_SESSION['objectId'],
 		'personalRequest'	=>	$_POST['personalRequest']

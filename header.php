@@ -137,17 +137,53 @@ if($_SESSION['logedIn_by_facebook']) {
                                 <li><a href="<?php echo $prefUrl; ?>"><i class="fa fa-angle-double-right"></i> Who Am I</a></li>
                                 <li><a href="where_am_i.php"><i class="fa fa-angle-double-right"></i> Where Am I</a></li>
                                 <li><a href="how_do_i_pay.php"><i class="fa fa-angle-double-right"></i> How Do I Pay</a></li>
-                                <?php if(!$order->results[0]->objectId): ?>
-                                    <li><a href="place_order_timing.php"><i class="fa fa-angle-double-right"></i> Order</a></li>
-                                <?php else: ?>
-                                    <li><a href="placed_order_status.php"><i class="fa fa-angle-double-right"></i> Progress</a></li>
-                                <?php endif  ?>
 
                             </ul>
                         </li>
-                        
-                        
-                       
+
+                        <?php if(!$order->results[0]->objectId): ?>
+                        <li onclick="place_order_timing()" class="treeview">
+
+                            <a href="place_order_timing.php">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Order</span>
+                                
+                            </a>
+
+                        </li>
+
+                        <?php else: ?>
+
+                        <li onclick="placed_order_status()" class="treeview">
+
+                            <a href="placed_order_status.php">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Progress</span>
+                                
+                            </a>
+
+                        </li>
+                        <?php endif ?>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o"></i>
+                                <span>Help Me</span>
+                                <i class="fa fa-angle-left pull-right angleleft"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="how_we_work.php"><i class="fa fa-angle-double-right"></i>How We Work</a></li>
+                                <li><a href="terms_of_use.php"><i class="fa fa-angle-double-right"></i>Terms of Use</a></li>
+                                <li><a href="privacy_policy.php"><i class="fa fa-angle-double-right"></i>Privacy Policy</a></li>
+                                <li><a href="eula.php"><i class="fa fa-angle-double-right"></i>EULA</a></li>
+
+                            </ul>
+                        </li>
+
+
+
+
+
                     </ul>
                 </section>
                 <!-- /.sidebar -->

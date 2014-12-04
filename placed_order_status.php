@@ -46,6 +46,7 @@ if (isset($_SESSION['logined']))
                     <h3>Delivery Time</h3>
                 </div>
                 </section><!-- /.content -->
+                <?php var_dump($order); ?>
             </aside><!-- /.right-side -->
 <?php
 

@@ -1,18 +1,16 @@
 <?php 
-
-
-
 require_once('curl.php');
+require_once('swiftmailer-master/lib/swift_required.php');
 
 error_reporting(0);
 	$userinfo = [
 		'email' 		=>	$_POST['email'],
-		'password'		=>	sha1($_POST['password']),
-		'password2'		=>	sha1($_POST['password2']),
+		'password'		=>	$_POST['password'],
+		'password2'		=>	$_POST['password2'],
 		'username'		=>  $_POST['username'],
-		'firstName'			=>  $_POST['fname'],
-		'LastName'			=>	$_POST['lname'],
-		'phoneNumber'			=>  $_POST['phone']
+		'firstName'		=>  $_POST['fname'],
+		'LastName'		=>	$_POST['lname'],
+		'phoneNumber'	=>  $_POST['phone']
 	];
 
 	$userinfo['token'] = substr(md5(uniqid(rand(), true)), 16, 16);
@@ -21,6 +19,25 @@ error_reporting(0);
 		$created = createObjectInClass('_User', $userinfo);
 			if($created)
 			{
+				/* USING SWIFT MAIL */
+
+				//$to      = $userinfo['email'];
+				//$token   = $userinfo['token'];
+				//$link = "http://localhost:3000/verify_email.php?email=".$to."&token=".$token;
+				// Create the mail transport configuration
+				//$transport = Swift_MailTransport::newInstance();
+				// Create the message
+				//$message = Swift_Message::newInstance();
+				//$message->setTo(array($to => "KIFAYAT ULLAH"));
+				//$message->setSubject("Activate your email!");
+				//$message->setBody("The message");
+				//$message->setFrom("kifayat.1234u@gmail.com");
+				 
+				// Send the email
+				//$mailer = Swift_Mailer::newInstance($transport);
+				//$mailer->send($message);
+
+				/* USING HTML MAIL */
 				$to      = $userinfo['email'];
 				$token   = $userinfo['token'];
 				$subject = 'Confirm your account';

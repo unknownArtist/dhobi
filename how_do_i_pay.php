@@ -22,6 +22,7 @@ if (isset($_SESSION['logined']))
                     <h1>
                         How Do I Pay?
 
+
                     </h1>
                     <ol class="breadcrumb">
                         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

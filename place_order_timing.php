@@ -87,7 +87,7 @@ if (isset($_SESSION['logined']))
                                         </div>
                                         <div class="form-group">
 										<p><label>Retrival Date:</label>
-                                            <input name="retrievalDate"  class="form-control input-lg" data-date-format="yyyy-mm-dd"  id="datepickerPickup" placeholder="Retrival Date"></p>
+                                            <input name="retrievalDate"  class="form-control input-lg" data-date-format=yyyy-mm-dd  id="datepickerPickup" placeholder="Retrival Date"></p>
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Retrival Time:</label>
