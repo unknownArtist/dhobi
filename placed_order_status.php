@@ -10,6 +10,7 @@ if (isset($_SESSION['logined']))
 
     }
     $order = json_decode(getObjectsInClass('Order', json_encode(["userID" => $_SESSION['objectId']])));
+    $order = $order->results[0];
 }
 
 ?>
@@ -32,21 +33,21 @@ if (isset($_SESSION['logined']))
                 <!-- Main content -->
                 <section class="content">
                     <div class="order-status">
-                    <h3>Pick Up Time</h3>
-                    <button type="button" class="btn btn-<?php if($order->results[0]->progress == 1)  echo "primary";  else  echo "default";  ?>">Retrieved Time</button>
+                    <h3><?php echo $order->retrievalAtFrom ?> - <?php echo $order->retrievalAtTo ?></h3>
+                    <button type="button" class="btn btn-<?php if($order->progress == 1)  echo "primary primaryabc";  else  echo "default";  ?>">Retrieved Time</button>
 
                     <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-                    <button type="button" class="btn btn-<?php if($order->results[0]->progress == 2)  echo "primary";  else  echo "default";  ?>"> Cleaning </button>
+                    <button type="button" class="btn btn-<?php if($order->progress == 2)  echo "primary primaryabc";  else  echo "default";  ?>"> Cleaning </button>
 
                     <!-- Indicates a successful or positive action -->
-                    <button type="button" class="btn btn-<?php if($order->results[0]->progress == 3)  echo "primary";  else  echo "default";  ?>"> En Route</button>
+                    <button type="button" class="btn btn-<?php if($order->progress == 3)  echo "primary primaryabc";  else  echo "default";  ?>"> En Route</button>
 
                     <!-- Contextual button for informational alert messages -->
-                    <button type="button" class="btn btn-<?php if($order->results[0]->progress == 4)  echo "primary";  else  echo "default";  ?>"> Hand Delievered</button>
+                    <button type="button" class="btn btn-<?php if($order->progress == 4)  echo "primary primaryabc";  else  echo "default";  ?>"> Hand Delievered</button>
                     <h3>Delivery Time</h3>
                 </div>
                 </section><!-- /.content -->
-                
+
             </aside><!-- /.right-side -->
 <?php
 

@@ -253,7 +253,7 @@ plus-set .glyphicon
 {
  background:#3c8dbc;
  margin-top:6%;
- width:175px;
+ width:310px;
  padding:15px;
  margin-left:auto;
  margin-right:auto;
@@ -279,6 +279,11 @@ plus-set .glyphicon
 {
  background-color:#3c8dbc !important;
 }
+
+.order-status button.primaryabc
+ {
+ 	background-color: #3c8dbc !important;
+ }
 
 
 
