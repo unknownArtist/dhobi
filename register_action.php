@@ -9,7 +9,7 @@ error_reporting(0);
 		'password2'		=>	$_POST['password2'],
 		'username'		=>  $_POST['username'],
 		'firstName'		=>  $_POST['fname'],
-		'LastName'		=>	$_POST['lname'],
+		'lastName'		=>	$_POST['lname'],
 		'phoneNumber'	=>  $_POST['phone']
 	];
 
@@ -21,24 +21,27 @@ error_reporting(0);
 			{
 				/* USING SWIFT MAIL */
 
-				//$to      = $userinfo['email'];
-				//$token   = $userinfo['token'];
-				//$link = "http://localhost:3000/verify_email.php?email=".$to."&token=".$token;
+				$to      = $userinfo['email'];
+				$token   = $userinfo['token'];
+				$link = "http://localhost:3000/verify_email.php?email=".$to."&token=".$token;
 				// Create the mail transport configuration
-				//$transport = Swift_MailTransport::newInstance();
+				$transport = Swift_MailTransport::newInstance();
 				// Create the message
-				//$message = Swift_Message::newInstance();
-				//$message->setTo(array($to => "KIFAYAT ULLAH"));
-				//$message->setSubject("Activate your email!");
-				//$message->setBody("The message");
-				//$message->setFrom("kifayat.1234u@gmail.com");
-				 
+				
+				$message = Swift_Message::newInstance();
+				$message->setTo(array($to => "KIFAYAT ULLAH"));
+				$message->setSubject("Activate your email!");
+				$message->setBody("<a href=".$link.">"."Confirm your account"."</a>",'text/html');
+				$message->setFrom("kifayat.1234u@gmail.com");
+
+
+
 				// Send the email
-				//$mailer = Swift_Mailer::newInstance($transport);
-				//$mailer->send($message);
+				$mailer = Swift_Mailer::newInstance($transport);
+				$mailer->send($message);
 
 				/* USING HTML MAIL */
-				$to      = $userinfo['email'];
+				/*$to      = $userinfo['email'];
 				$token   = $userinfo['token'];
 				$subject = 'Confirm your account';
 				$link = "http://localhost:3000/verify_email.php?email=".$to."&token=".$token;
@@ -49,7 +52,7 @@ error_reporting(0);
 				$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 				$headers .= 'From:' . $from;
 
-				$m = mail($to, $subject, $message, $headers);
+				$m = mail($to, $subject, $message, $headers);*/
 
 				header('location:login.php');
 			}

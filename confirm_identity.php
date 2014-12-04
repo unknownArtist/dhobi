@@ -67,7 +67,7 @@ if($_SESSION['facebookID']) {
 
                                     <div class="box-footer">
                                     <p>
-                                        <button type="submit" class="btn btn-primary">Conform</button>
+                                        <button type="submit" class="btn btn-primary">Confirm</button>
                                         </p>
                                     </div>
                                 </form>

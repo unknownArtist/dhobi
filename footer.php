@@ -43,9 +43,38 @@
             });
 
         </script>
+
+
          <script>
          var total;
             $(document).ready(function(){
+
+                $(".glyphicon").click(function(e){
+
+                    e.preventDefault(); 
+
+                    var $inputField = $(this).parent().parent().siblings('td').find('span');
+                    var oldValue = $inputField.html();
+                    var sign = $(this).attr('data-sign');
+
+                    if (sign == "plus") {
+                      var newVal = parseFloat(oldValue) + 1;
+                    } else {
+                            if (oldValue > 0) {
+                              var newVal = parseFloat(oldValue) - 1;
+                            } else {
+                              newVal = 0;
+                            }
+                      }
+                    $inputField.html(newVal);
+
+
+                        $("#totalamount").html(" ");
+                        $("#totalamountdiv").empty();
+                        calculateSum();
+                    
+                });
+
                 $("#calculate").click(function(e){
                     e.preventDefault();
                         $("#totalamount").val(" ");
@@ -64,15 +93,15 @@
                 for (i = 0; i < 6; i++)
                 {
 
-                     total +=  parseFloat($("#quantity_price"+i).data('price') * $("#quantity_price"+i).val());
+                     total +=  parseFloat($("#quantity_price"+i).data('price') * $("#quantity_price"+i).html());
                     
                 }
-                $("#totalamount").val(total);
+                $("#totalamount").html(total);
                 $("#totalamountdiv").append('$'+total);
 
 
             }
-</script>
+        </script>
 
 <script type="text/javascript">
     function place_order_timing() {

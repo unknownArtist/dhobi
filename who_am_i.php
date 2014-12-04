@@ -16,13 +16,13 @@ if (isset($_SESSION['logined']))
 }
 
 if($_POST) {
-    $password = sha1($_POST['password']);
+    $password = $_POST['password'];
 
     $userInfo = json_decode(getObjectByIdInClass('_User', $_SESSION['objectId']));
 
      if(!($password == $userInfo->password2))
         {
-            header('location:conform_identity.php');
+            header('location:confirm_identity.php');
         }
 }
 

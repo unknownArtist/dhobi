@@ -55,12 +55,20 @@ if (isset($_SESSION['logined']))
                                   <td><?php echo ucfirst($AllClothsCate->results[$i]->name); ?></td>
                                 
                                   <td>
-                                  <input data-price="<?php echo $AllClothsCate->results[$i]->price; ?>" id="quantity_price<?php echo $i ?>" type="text" name="quantity" id="quantity" /></td>
-                                  <td class="plus-set"><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>
-                                  </a>
-                                  <a href="#" class="red-minus"><span class="glyphicon glyphicon-minus-sign"></span>
-                                  </a>
-                                   &emsp; $<?php echo $AllClothsCate->results[$i]->price; ?></td>
+                                    <span data-price="<?php echo $AllClothsCate->results[$i]->price; ?>" id="quantity_price<?php echo $i ?>"  name="quantity" id="quantity">
+                                      0
+                                    </span>
+                                  </td>
+
+                                  <td class="plus-set">
+                                    <a href="#">
+                                      <span data-sign= 'plus' class="glyphicon glyphicon-plus-sign"></span>
+                                    </a>
+                                    <a href="#" class="red-minus">
+                                      <span data-sign= 'minus' class="glyphicon glyphicon-minus-sign"></span>
+                                    </a>
+                                   &emsp; $<?php echo $AllClothsCate->results[$i]->price; ?>
+                                  </td>
 
                                   </tr>
                                <?php } ?> 

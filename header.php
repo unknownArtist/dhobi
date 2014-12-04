@@ -22,7 +22,7 @@ if(!$_SESSION['logedIn_by_facebook']) {
     }
 }
 
-$prefUrl = 'conform_identity.php';
+$prefUrl = 'confirm_identity.php';
 
 if($_SESSION['logedIn_by_facebook']) {
     $prefUrl = 'who_am_i.php';
