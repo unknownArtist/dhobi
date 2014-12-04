@@ -36,7 +36,7 @@ if (isset($_SESSION['logined']))
                 <section class="content">
                  
                    
-                    <div id="text-address">
+                    <div id="text-order">
 
                     <div class="where-set">
                         <div class="bs-example">
@@ -56,7 +56,11 @@ if (isset($_SESSION['logined']))
                                 
                                   <td>
                                   <input data-price="<?php echo $AllClothsCate->results[$i]->price; ?>" id="quantity_price<?php echo $i ?>" type="text" name="quantity" id="quantity" /></td>
-                                  <td>$<?php echo $AllClothsCate->results[$i]->price; ?></td>
+                                  <td class="plus-set"><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>
+                                  </a>
+                                  <a href="#" class="red-minus"><span class="glyphicon glyphicon-minus-sign"></span>
+                                  </a>
+                                   &emsp; $<?php echo $AllClothsCate->results[$i]->price; ?></td>
 
                                   </tr>
                                <?php } ?> 
@@ -72,8 +76,8 @@ if (isset($_SESSION['logined']))
                                   
                                 </tr>
                                 <tr>
-                                <td><h3>Total</h3>
-                                 <div style="margin-left: 70px;margin-top: 14px;" id="totalamountdiv"></div>
+                                <td><h3>Total&emsp;<span id="totalamountdiv"></span></h3>
+                                 
                                  </td>
                                 <td>
                                 <button id="calculate" class="btn btn-success">Calculate</button>
@@ -96,7 +100,7 @@ if (isset($_SESSION['logined']))
                         
                         </div>
                         <h3></h3>
-                        </a>
+                     
                     </div>
                     
                 </section><!-- /.content -->

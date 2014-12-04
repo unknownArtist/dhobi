@@ -4,19 +4,30 @@ require_once('curl.php');
 $order = getObjectsInClass('Order', json_encode(array('userID'=>$_SESSION['objectId'])));
 $order = json_decode($order);
 
-if ($_SESSION['logined'] == 1)
-{
-    if(!isset($_SESSION['sessionToken']))
+
+
+if(!$_SESSION['logedIn_by_facebook']) {
+    if ($_SESSION['logined'] == 1)
+    {
+        if(!isset($_SESSION['sessionToken']))
+        {
+            header('location:login.php');
+            die();
+        }
+    }
+    else 
     {
         header('location:login.php');
         die();
     }
 }
-else 
-{
-    header('location:login.php');
-    die();
+
+$prefUrl = 'conform_identity.php';
+
+if($_SESSION['logedIn_by_facebook']) {
+    $prefUrl = 'who_am_i.php';
 }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -123,7 +134,7 @@ else
                                 <i class="fa fa-angle-left pull-right angleleft"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="conform_identity.php"><i class="fa fa-angle-double-right"></i> Who Am I</a></li>
+                                <li><a href="<?php echo $prefUrl; ?>"><i class="fa fa-angle-double-right"></i> Who Am I</a></li>
                                 <li><a href="where_am_i.php"><i class="fa fa-angle-double-right"></i> Where Am I</a></li>
                                 <li><a href="how_do_i_pay.php"><i class="fa fa-angle-double-right"></i> How Do I Pay</a></li>
                                 <?php if(!$order->results[0]->objectId): ?>

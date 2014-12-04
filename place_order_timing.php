@@ -60,8 +60,12 @@ if (isset($_SESSION['logined']))
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Retrival Time:</label>
-                                            <input name="retrievaltime" id="timepicker" type="text" class="input-small">
-                                            <i class="icon-time"></i></p>
+                                        <span class="setsel">
+                                            <select name="retrievaltime" class="form-control input-lg" id="timepicker">                                            
+                                              
+                                              <option value=""></option>
+                                          
+                                            </select></span></p>
                                         </div>
                                         <div class="form-group">
                                         <p><label>Deliever Date:</label>
@@ -69,12 +73,16 @@ if (isset($_SESSION['logined']))
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Deliever Time:</label>
-                                            <input name="delieverTime" id="timepicker1" type="text" class="input-small">
-                                            <i class="icon-time"></i></p>
+                                            <span class="setsel">
+                                            <select name="delievertime" class="form-control input-lg" id="timepicker1">                                            
+                                              
+                                              <option value=""></option>
+                                          
+                                            </select></span></p>
                                         </div>
                                         <div class="form-group">
 										<p><label>Personal Request:</label>
-                                            <textarea name="personalRequest" cols="5" class="form-control input-lg date"  id="exampleInputFirstName"  placeholder="Personal Request" ></textarea></p>
+                                            <textarea name="personalRequest" rows="8" class="form-control input-lg date"  id="exampleInputFirstName"  placeholder="Personal Request" ></textarea></p>
                                         </div>
                                         
                                      </div><!-- /.box-body -->
@@ -85,7 +93,9 @@ if (isset($_SESSION['logined']))
                                         </p>
                                     </div>
                                 </form>
+
                                <?php var_dump(date("H:i", strtotime($store->pickupTime) + 3600)); ?>
+
                             </div><!-- /.box -->
 
                 </section><!-- /.content -->

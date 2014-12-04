@@ -1,6 +1,56 @@
-f<?php
+<?php
+
 session_start();
 require_once('curl.php');
+require_once('facebook_auth/src/facebook.php');
+
+$facebook = new Facebook(array(
+        'appId' => '1577721512451197',
+        'secret' => '5b3e7ec9861d1c2198adefa9795a5086'
+    ));
+
+$loginUrl =$facebook->getLoginUrl(); 
+
+$uid = $facebook->getUser();
+
+
+if($uid) {
+    $user = $facebook->api('/me');
+
+    $userinfo = [
+        'facebookID'    =>  $user['id'],
+        'email'         =>  $user['email'],
+        'password'      =>  'dumy',
+        'username'      =>  $user['name'],
+        'firstName'     =>  $user['first_name'],
+        'lastName'      =>  $user['last_name'],
+    ];
+
+    $_SESSION['logedIn_by_facebook'] = $userinfo['facebookID'];
+
+    
+    
+    $findUser = getObjectsInClass('_User', json_encode(array('email'=>$userinfo['email'])));
+    $findUser = json_decode($findUser)->results[0];
+
+    if($findUser != null ){
+        header('location:index.php'); die(); 
+    } else {
+        $created = createObjectInClass('_User', $userinfo);
+        header('location:index.php'); die(); 
+    }
+
+
+}
+
+if (isset($_SESSION['logined']))
+{   
+    if(isset($_SESSION['sessionToken']))
+    {  
+        header('location:index.php');
+        die();
+    }
+}
 
 
 // if (isset($_SESSION['logined']))
@@ -16,6 +66,8 @@ require_once('curl.php');
 //     }
 
 ?>
+
+
 <!DOCTYPE html>
 <html class="bg-black">
     <head>
@@ -66,7 +118,7 @@ require_once('curl.php');
             <div class="margin text-center">
                 <span>Connect with</span>
                 <br/>
-                <button class="btn bg-light-blue btn-circle"><a href=""><i class="fa fa-facebook"></i></a></button>
+                <button class="btn bg-light-blue btn-circle"><a href="<?php echo $loginUrl; ?>"><i class="fa fa-facebook"></i></a></button>
             </div>
         </div>
 

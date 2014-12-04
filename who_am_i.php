@@ -1,12 +1,8 @@
 <?php 
 ob_start();
 /*error_reporting(0);*/
-session_start();
-require_once('curl.php');
-
 
 include("header.php");
-//session_start();
 require_once('curl.php');
 
 if (isset($_SESSION['logined']))
@@ -19,13 +15,15 @@ if (isset($_SESSION['logined']))
 
 }
 
-$password = sha1($_POST['password']);
+if($_POST) {
+    $password = sha1($_POST['password']);
 
-$userInfo = json_decode(getObjectByIdInClass('_User', $_SESSION['objectId']));
+    $userInfo = json_decode(getObjectByIdInClass('_User', $_SESSION['objectId']));
 
-if(!($password == $userInfo->password2))
-{
-    header('location:conform_identity.php');
+     if(!($password == $userInfo->password2))
+        {
+            header('location:conform_identity.php');
+        }
 }
 
 ?>
