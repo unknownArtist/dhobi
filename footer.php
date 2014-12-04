@@ -34,6 +34,7 @@
             });
             $('#datepickerDeliever').datepicker({
 
+                format: 'yyyy-mm-dd',
                 startDate: '+3d',
                 endDate: '+6d',
                 autoclose: true,

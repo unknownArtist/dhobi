@@ -10,8 +10,39 @@ if (isset($_SESSION['logined']))
 
     }
 
-     $user = json_decode(getObjectsInClass('Address', json_encode(["userID" => $_SESSION['objectId']])));
-     $store = json_decode(getObjectByIdInClass('Store','EykvXBNOle'));
+    $user = json_decode(getObjectsInClass('Address', json_encode(["userID" => $_SESSION['objectId']])));
+    $store = json_decode(getObjectByIdInClass('Store','EykvXBNOle'));
+    /*-----------------------------pickupTime-----------------------------------*/
+    $pickuptime = date("H:i",strtotime($store->pickupTime));
+        for ($i=0; $i < 24 ; $i++) 
+        { 
+            $ptimes = $pickuptime."-".date("H:i",strtotime($pickuptime) + 3600);
+            $pickuptimes .= "<option value=$ptimes>".$ptimes."</option>";
+
+            $pickuptime = date("H:i",strtotime($pickuptime) + 3600); 
+
+            if($pickuptime == date("H:i",strtotime($store->pickupTimeto)))
+            {
+                break 1;
+            }
+
+        }
+    /*---------------------------Deviler Time ---------------------------------*/
+         $deliverytime = date("H:i",strtotime($store->deliveryTime));
+        for ($j=0; $j < 24 ; $j++) 
+        { 
+            $dtimes = $deliverytime."-".date("H:i",strtotime($deliverytime) + 3600);
+            $deliverytimes .= "<option value=$dtimes>".$dtimes."</option>";
+
+            $deliverytime = date("H:i",strtotime($deliverytime) + 3600); 
+
+            if($deliverytime == date("H:i",strtotime($store->deliveryTimeto)))
+            {
+                break 1;
+            }
+
+        }
+    /*-------------------------------------------------------------------------*/
 }
 
 ?>
@@ -55,28 +86,28 @@ if (isset($_SESSION['logined']))
                                             
                                         </div>
                                         <div class="form-group">
-										<p><label>Pickup Date:</label>
-                                            <input name="retrievalDate"  class="form-control input-lg" data-date-format="mm-dd-yyyy"  id="datepickerPickup" placeholder="Retrival Date"></p>
+										<p><label>Retrival Date:</label>
+                                            <input name="retrievalDate"  class="form-control input-lg" data-date-format="yyyy-mm-dd"  id="datepickerPickup" placeholder="Retrival Date"></p>
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Retrival Time:</label>
                                         <span class="setsel">
                                             <select name="retrievaltime" class="form-control input-lg" id="timepicker">                                            
                                               
-                                              <option value=""></option>
+                                              <?php echo $pickuptimes ?>
                                           
                                             </select></span></p>
                                         </div>
                                         <div class="form-group">
                                         <p><label>Deliever Date:</label>
-                                            <input name="delieverDate"  class="form-control input-lg" id="datepickerDeliever" placeholder="Deliever Date"></p>
+                                            <input name="delieverDate"  class="form-control input-lg"  id="datepickerDeliever" placeholder="Deliever Date"></p>
                                         </div>
                                         <div class="form-group bootstrap-timepicker">
                                         <p><label>Deliever Time:</label>
                                             <span class="setsel">
                                             <select name="delievertime" class="form-control input-lg" id="timepicker1">                                            
                                               
-                                              <option value=""></option>
+                                              <?php echo $deliverytimes ?>
                                           
                                             </select></span></p>
                                         </div>
@@ -94,9 +125,7 @@ if (isset($_SESSION['logined']))
                                     </div>
                                 </form>
 
-                               <?php var_dump(date("H:i", strtotime($store->pickupTime) + 3600)); ?>
-
-                            </div><!-- /.box -->
+                           </div><!-- /.box -->
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->

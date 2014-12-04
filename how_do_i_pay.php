@@ -20,7 +20,7 @@ if (isset($_SESSION['logined']))
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                     <h1>
-                        Where I Am ?
+                        How Do I Pay?
 
                     </h1>
                     <ol class="breadcrumb">
