@@ -11,7 +11,12 @@ if (isset($_SESSION['logined']))
     }
 
 }
+
+
 ?>
+
+
+
 
 
             <!-- Right side column. Contains the navbar and content of the page -->

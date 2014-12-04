@@ -72,6 +72,16 @@
 
             }
 </script>
+
+<script type="text/javascript">
+    function place_order_timing() {
+        window.location = "http://localhost:3000/place_order_timing.php";
+    }
+
+    function placed_order_status() {
+        window.location = "http://localhost:3000/placed_order_status.php";
+    }
+</script>
     </body>
   
 </html>
