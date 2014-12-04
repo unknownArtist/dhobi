@@ -12,12 +12,7 @@ if (isset($_SESSION['logined']))
 
      $user = json_decode(getObjectsInClass('Address', json_encode(["userID" => $_SESSION['objectId']])));
      $store = json_decode(getObjectByIdInClass('Store','EykvXBNOle'));
-
-
-
-    
-
-    }
+}
 
 ?>
 
@@ -90,14 +85,7 @@ if (isset($_SESSION['logined']))
                                         </p>
                                     </div>
                                 </form>
-                               <?php 
-
-                               var_dump($store->pickupTime,$store->pickupTimeto);
-                                  $to_time = strtotime($store->pickupTime);
-                                    $from_time = strtotime($store->pickupTimeto);
-                                    echo Date("H",round(abs($to_time - $from_time) / 60). " minute");
-
-                                ?>
+                               <?php var_dump(date("H:i", strtotime($store->pickupTime) + 3600)); ?>
                             </div><!-- /.box -->
 
                 </section><!-- /.content -->
