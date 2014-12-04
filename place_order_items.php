@@ -56,7 +56,7 @@ if (isset($_SESSION['logined']))
                                 
                                   <td>
                                   <input data-price="<?php echo $AllClothsCate->results[$i]->price; ?>" id="quantity_price<?php echo $i ?>" type="text" name="quantity" id="quantity" /></td>
-                                  <td class="plus-set"><a href="#"><span class="glyphicon glyphicon-plus-sign"></span>
+                                  <td class="plus-set"><a href="#"><span class="glyphicon glyphicon-plus-sign plus<?php echo $i ?>"></span>
                                   </a>
                                   <a href="#" class="red-minus"><span class="glyphicon glyphicon-minus-sign"></span>
                                   </a>
