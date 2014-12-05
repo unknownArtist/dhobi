@@ -60,28 +60,32 @@ if (isset($_SESSION['logined']))
                                         </div>
                                         <div class="form-group">
 										<p><label>Zip Code</label>
-                                            <input required name="zipCode" type="text" class="form-control input-lg" id="exampleInputFirstName"  placeholder="Zip Code" ></p>
+                                            <input required  name="zipCode" type="text" class="form-control input-lg" id="zip_code"  placeholder="Zip Code" ></p>
                                         </div>
                                         <div class="address_label">
                                            
                                         </div>
                                         <div class="form-group">
+                                        <p><label>Location</label>
+                                         <input required id="location" name="location" type="text" class="form-control input-lg"  placeholder="Location"></p>
+                                        </div>
+                                        <!-- <div class="form-group">
                                         <p> <label>Location</label>
                                         <span class="setsel">
-                                        	<select required name="location" class="form-control input-lg" >
-											  <option value="home">Home</option>
-											  <option value="office">Office</option>
-											  <option value="other">Other</option>
-											</select></span></p>
+                                            <select required name="location" class="form-control input-lg" >
+                                                                                      <option value="home">Home</option>
+                                                                                      <option value="office">Office</option>
+                                                                                      <option value="other">Other</option>
+                                                                                    </select></span></p>
                                             
-                                        </div>
+                                        </div> -->
                                         <div class="address_label">
                                             
                                         </div>
-                                        <div class="form-group">
-                                        <p><label>Notes</label>
-                                            <input name="notes" type="text" class="form-control input-lg" id="exampleInputNotes" placeholder="Note (Optional)" value="" ></p>
-                                        </div>
+                                       <!--  <div class="form-group">
+                                       <p><label>Notes</label>
+                                           <input name="notes" type="text" class="form-control input-lg" id="exampleInputNotes" placeholder="Note (Optional)" value="" ></p>
+                                       </div> -->
                                         
                                         
                                         
@@ -98,6 +102,25 @@ if (isset($_SESSION['logined']))
 
                 </section><!-- /.content -->
             </aside><!-- /.right-side -->
+
+            <script type="text/javascript">
+            
+            /*function zipCodeValidate() {
+                var x = document.getElementById("zip_code");
+                var zip_code = x.value;
+                
+                var zip_code_validator = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+
+                if(!(zip_code_validator.test(zip_code))){
+
+                 var err_field = document.getElementById("display_errors-wrapper");
+                 err_field.innerHTML = 'Invalid zip code';
+                 
+            }
+
+            }*/
+
+            </script>
 
 <?php include("footer.php"); ?>
 

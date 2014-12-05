@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html class="bg-black">
     <head>
@@ -22,8 +26,9 @@
 
         <div class="form-box" id="login-box">
             <div class="header"><img src="img/logo.png" alt="logo"></div>
-            <form action="../../index.html" method="post">
+            <form action="forgot_action.php" method="post">
                 <div class="body bg-gray">
+                <p class="error" style="color: red;"><?php echo ucfirst($_SESSION['unregisteredEmail']); ?> </p>
                     <div class="form-group">
                         <input type="text" name="email" class="form-control" placeholder="Email"/>
                     </div>
@@ -39,7 +44,7 @@
 
         </div>
 
-
+        <?php $_SESSION['unregisteredEmail'] = null; ?>
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <!-- Bootstrap -->

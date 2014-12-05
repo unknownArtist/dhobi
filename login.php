@@ -19,9 +19,8 @@ if($uid) {
 
     $userinfo = [
         'facebookID'    =>  $user['id'],
-        'email'         =>  $user['email'],
+        'username'      =>  $user['email'],
         'password'      =>  'dumy',
-        'username'      =>  $user['name'],
         'firstName'     =>  $user['first_name'],
         'lastName'      =>  $user['last_name'],
     ];
@@ -30,14 +29,18 @@ if($uid) {
 
     
     
-    $findUser = getObjectsInClass('_User', json_encode(array('email'=>$userinfo['email'])));
+    $findUser = getObjectsInClass('_User', json_encode(array('username'=>$userinfo['email'])));
     $findUser = json_decode($findUser)->results[0];
-
-    if($findUser != null ){
+    
+    if($findUser != null ){ 
         header('location:index.php'); die(); 
     } else {
-        $created = createObjectInClass('_User', $userinfo);
-        header('location:index.php'); die(); 
+        $created = json_encode(createObjectInClass('_User', $userinfo));
+        $error = $created->error;
+        if($error){
+            echo $error; die();
+        } 
+        header('location:add_address.php'); die(); 
     }
 
 
@@ -94,8 +97,11 @@ if (isset($_SESSION['logined']))
 
         <div class="form-box" id="login-box">
             <div class="header"><img src="img/logo.png" alt="logo"></div>
+
             <form action="login_action.php" method="post">
+
                 <div class="body bg-gray">
+                <p style="color: red;"><?php echo ucfirst($_SESSION['loginError']); ?> </p>
                     <div class="form-group">
                         <input type="text" name="email" class="form-control" placeholder="Email"/>
                     </div>
@@ -122,7 +128,7 @@ if (isset($_SESSION['logined']))
             </div>
         </div>
 
-
+        <?php $_SESSION['loginError'] = null; ?>
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <!-- Bootstrap -->

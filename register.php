@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html class="bg-black">
     <head>
@@ -26,13 +29,11 @@
             <form action="register_action.php" method="post">
 
                 <div class="body bg-gray">
-                    
+                    <p class="errors" style="color:red"><?php echo $_SESSION['registerAction_error']; ?></p>
                     <div class="form-group">
                         <input type="text" name="email" class="form-control" placeholder="Email"/>
                     </div>
-                    <div class="form-group">
-                        <input type="text" name="username" class="form-control" placeholder="User Name"/>
-                    </div>
+                    
                     <div class="form-group">
                         <input type="password" name="password" class="form-control" placeholder="Password"/>
                     </div>

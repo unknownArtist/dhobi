@@ -15,7 +15,7 @@ if (isset($_SESSION['logined']))
 
 }
 
-if($_POST) {
+/*if($_POST) {
     $password = $_POST['password'];
 
     $userInfo = json_decode(getObjectByIdInClass('_User', $_SESSION['objectId']));
@@ -24,7 +24,7 @@ if($_POST) {
         {
             header('location:confirm_identity.php');
         }
-}
+}*/
 
 ?>
             <!-- Right side column. Contains the navbar and content of the page -->

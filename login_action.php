@@ -2,11 +2,19 @@
 /*error_reporting(0);*/
 session_start();
 require_once('curl.php');
-$emailID	=	$_POST['email'];
-$pass		=	$_POST['password'];
+$email	=	$_POST['email'];
+$pass   =	$_POST['password'];
 
-$result = json_decode(login($_POST['email'], $_POST['password']), true);
+if($_POST){
+	$result = json_decode(login($email, $pass), true);
+}else {
+	$result = json_decode(login($_SESSION['email'], $_SESSION['password']), true);
+}
 
+if($result['error'] != null) {
+	$_SESSION['loginError'] = $result['error'];
+	header('location:login.php'); die();
+}
 if (isset($result['sessionToken']))
 {
       $alert = 'gotonext';
@@ -17,7 +25,7 @@ if (isset($result['sessionToken']))
       $_SESSION['objectId'] = $result['objectId'];
       $_SESSION['email'] = $_POST['email'];
 
-      header('location:index.php');
+      header('location:add_address.php');
 }
 else 
 {

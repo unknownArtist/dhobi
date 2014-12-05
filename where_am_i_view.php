@@ -68,10 +68,10 @@ if (isset($_SESSION['logined']))
                                             
                                         </div>
                                         
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                         <p><label>Notes</label>
                                             <input name="notes" type="text" class="form-control input-lg" id="exampleInputNotes" placeholder="Note (Optional)" value="<?php echo $user->notes ?>" ></p>
-                                        </div>
+                                        </div> -->
                                         
                                         
                                         

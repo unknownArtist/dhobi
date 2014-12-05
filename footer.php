@@ -103,6 +103,26 @@
             }
         </script>
 
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                $("#zip_code").focusout(function() {
+                var zip_code = $(this).val();
+
+                var zip_code_validator = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+                if(!(zip_code_validator.test(zip_code))){
+                    $('#submit').attr("disabled", true);
+                    $("#display_errors-wrapper").empty().append('Invalid zip code').fadeOut(2000,'swing').fadeIn(3000).fadeOut(3000); 
+                 
+                }else if(zip_code_validator.test(zip_code)){
+                    $('#submit').attr("disabled", false);
+                    
+                 
+                }
+                });
+            })
+        </script>
+
 <script type="text/javascript">
     function place_order_timing() {
         window.location = "http://localhost:3000/place_order_timing.php";

@@ -8,7 +8,6 @@ session_start();
 		'aptNumber'		=>	$_POST['aptNumber'],
 		'zipCode'		=>	$_POST['zipCode'],
 		'userID'		=>  $_SESSION['objectId'],
-		'notes'			=>	$_POST['notes'],
 		'category'		=>  $_POST['location']
 	];
 // form validation
@@ -47,7 +46,10 @@ session_start();
 	if(!$userinfo['category'])
 		{
 			echo json_encode("Please select category"); return;
-		}
+		}else if(!(preg_match('/^[-a-zA-Z .]+$/', $userinfo['location'])))
+				{
+					echo json_encode("Invalid location name"); return;
+				}
 					
 
 
